@@ -1,0 +1,34 @@
+{{!
+    @template block_moodle_proctor/status
+}}
+<div class="block-moodle-proctor-status">
+    <h6 class="h6">{{#str}} status_heading, block_moodle_proctor {{/str}}</h6>
+    <ul class="list-unstyled mb-2">
+        <li>
+            {{#storageok}}
+                <span class="text-success">●</span> {{#str}} storage_ready, block_moodle_proctor {{/str}}
+            {{/storageok}}
+            {{^storageok}}
+                <span class="text-danger">●</span> {{#str}} storage_notready, block_moodle_proctor {{/str}}
+            {{/storageok}}
+        </li>
+        {{#requireenrollment}}
+        <li>
+            {{#complete}}
+                <span class="text-success">●</span> {{#str}} enrollment_complete, block_moodle_proctor {{/str}}
+            {{/complete}}
+            {{^complete}}
+                <span class="text-warning">●</span> {{#str}} enrollment_pending, block_moodle_proctor {{/str}}
+            {{/complete}}
+        </li>
+        {{/requireenrollment}}
+        {{#enableextension}}
+        <li><span class="text-info">●</span> {{#str}} extension_required, block_moodle_proctor {{/str}}</li>
+        {{/enableextension}}
+    </ul>
+    {{#requireenrollment}}
+    {{^complete}}
+    <a class="btn btn-primary btn-sm" href="{{{enrollmenturl}}}">{{#str}} enrollment_link, block_moodle_proctor {{/str}}</a>
+    {{/complete}}
+    {{/requireenrollment}}
+</div>
