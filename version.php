@@ -8,10 +8,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component   = 'block_moodle_proctor';
-$plugin->version     = 2026061510;
-$plugin->requires    = 2024100700;
+$plugin->version     = 2026061600;
+$plugin->requires    = 2026042000; // Moodle 5.2.
+$plugin->supported   = [502, 503];
 $plugin->maturity    = MATURITY_STABLE;
-$plugin->release     = '1.0.0-moodle45';
+$plugin->release     = '1.1.0-moodle52';
 $plugin->dependencies = [
-    'local_moodle_proctor' => 2026061510,
+    'local_moodle_proctor' => 2026061600,
 ];
