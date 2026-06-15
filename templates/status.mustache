@@ -26,6 +26,11 @@
         <li><span class="text-info">●</span> {{#str}} extension_required, block_moodle_proctor {{/str}}</li>
         {{/enableextension}}
     </ul>
+    {{#enableextension}}
+    <a class="btn btn-outline-primary btn-sm mb-2" href="{{{extensioninstallurl}}}">
+        {{#str}} extension_install_link, block_moodle_proctor {{/str}}
+    </a>
+    {{/enableextension}}
     {{#requireenrollment}}
     {{^complete}}
     <a class="btn btn-primary btn-sm" href="{{{enrollmenturl}}}">{{#str}} enrollment_link, block_moodle_proctor {{/str}}</a>

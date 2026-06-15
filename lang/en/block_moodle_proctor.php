@@ -11,4 +11,5 @@ $string['enrollment_complete'] = 'Enrollment complete';
 $string['enrollment_pending'] = 'Enrollment pending';
 $string['enrollment_link'] = 'Complete proctoring enrollment';
 $string['extension_required'] = 'Browser extension required for proctored exams';
+$string['extension_install_link'] = 'Install browser extension';
 $string['notconfigured'] = 'Moodle Proctor is not configured on this site.';

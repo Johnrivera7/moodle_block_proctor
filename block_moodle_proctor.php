@@ -55,6 +55,9 @@ class block_moodle_proctor extends block_base {
             'enrollmenturl' => (new moodle_url('/local/moodle_proctor/enrollment.php', [
                 'courseid' => $COURSE->id,
             ]))->out(false),
+            'extensioninstallurl' => (new moodle_url('/local/moodle_proctor/extension_install.php', [
+                'courseid' => $COURSE->id,
+            ]))->out(false),
             'requireenrollment' => !empty($config->requireenrollment),
             'storageok' => local_moodle_proctor_is_configured(),
             'enableextension' => !empty($config->enableextension),
