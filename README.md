@@ -46,7 +46,7 @@ git clone -b MOODLE_45 https://github.com/Johnrivera7/moodle_block_proctor.git m
 
 | Indicador | Significado |
 |-----------|-------------|
-| 🟢 Almacenamiento configurado | SFS OK |
+| 🟢 Almacenamiento configurado | disco OK |
 | 🔴 Almacenamiento no configurado | Revisar admin |
 | 🟢 Enrollment completo | Estudiante listo para examen |
 | 🟡 Enrollment pendiente | Falta consentimiento + foto |
