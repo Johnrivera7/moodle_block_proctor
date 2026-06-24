@@ -7,9 +7,11 @@ $string['privacy:metadata'] = 'El bloque solo muestra el estado de supervisión.
 $string['status_heading'] = 'Estado de supervisión';
 $string['storage_ready'] = 'Almacenamiento configurado';
 $string['storage_notready'] = 'Almacenamiento no configurado (contacte al administrador)';
-$string['enrollment_complete'] = 'Enrollment completo';
-$string['enrollment_pending'] = 'Enrollment pendiente';
-$string['enrollment_link'] = 'Completar enrollment de proctoring';
+$string['enrollment_complete'] = 'Verificación de identidad completa';
+$string['enrollment_pending'] = 'Verificación de identidad pendiente';
+$string['enrollment_link'] = 'Verificar identidad (cédula + rostro)';
 $string['extension_required'] = 'Se requiere extensión de navegador para exámenes supervisados';
 $string['extension_install_link'] = 'Instalar extensión de navegador';
 $string['notconfigured'] = 'Moodle Proctor no está configurado en este sitio.';
+$string['settings_info_heading'] = 'Configuración';
+$string['settings_info_desc'] = 'La configuración principal de supervisión, almacenamiento, RUT y verificación de identidad está en <a href="/admin/settings.php?section=local_moodle_proctor_settings">Plugins locales → Moodle Proctor</a>.';
