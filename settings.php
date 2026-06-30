@@ -9,10 +9,7 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot . '/local/moodle_proctor/lib.php');
 
-$settings = new admin_settingpage('blocksettingmoodle_proctor', get_string('pluginname', 'block_moodle_proctor'));
-if ($ADMIN->fulltree) {
-    $ADMIN->add('blocksettings', $settings);
-
+if ($hassiteconfig && !empty($settings)) {
     local_moodle_proctor_add_author_settings(
         $settings,
         'block_moodle_proctor',
