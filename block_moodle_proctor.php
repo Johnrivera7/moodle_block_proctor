@@ -49,6 +49,9 @@ class block_moodle_proctor extends block_base {
         $enrollment = new \local_moodle_proctor\enrollment_manager();
         $complete = $enrollment->is_complete($USER->id, $COURSE->id);
         $config = local_moodle_proctor_get_config();
+        $systemcontext = context_system::instance();
+        $canmanage = has_capability('local/moodle_proctor:manage', $systemcontext);
+        $canreports = has_capability('local/moodle_proctor:viewreports', $context);
 
         $data = (object) [
             'complete' => $complete,
@@ -58,9 +61,17 @@ class block_moodle_proctor extends block_base {
             'extensioninstallurl' => (new moodle_url('/local/moodle_proctor/extension_install.php', [
                 'courseid' => $COURSE->id,
             ]))->out(false),
+            'sandboxurl' => (new moodle_url('/local/moodle_proctor/sandbox.php', [
+                'courseid' => $COURSE->id,
+            ]))->out(false),
+            'reportsurl' => (new moodle_url('/local/moodle_proctor/reports.php', [
+                'courseid' => $COURSE->id,
+            ]))->out(false),
             'requireenrollment' => !empty($config->requireenrollment),
             'storageok' => local_moodle_proctor_is_configured(),
             'enableextension' => !empty($config->enableextension),
+            'canmanage' => $canmanage,
+            'canreports' => $canreports,
         ];
 
         $this->content->text = $OUTPUT->render_from_template('block_moodle_proctor/status', $data);

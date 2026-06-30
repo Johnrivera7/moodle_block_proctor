@@ -22,10 +22,30 @@
             {{/complete}}
         </li>
         {{/requireenrollment}}
+        {{#enableextension}}
+        <li>
+            <span class="text-info">●</span> {{#str}} extension_required, block_moodle_proctor {{/str}}
+        </li>
+        {{/enableextension}}
     </ul>
+
     {{#requireenrollment}}
     {{^complete}}
-    <a class="btn btn-primary btn-sm" href="{{{enrollmenturl}}}">{{#str}} enrollment_link, block_moodle_proctor {{/str}}</a>
+    <p class="small text-muted mb-2">{{#str}} enrollment_pending_help, block_moodle_proctor {{/str}}</p>
+    <a class="btn btn-primary btn-sm mb-2" href="{{{enrollmenturl}}}">{{#str}} enrollment_link, block_moodle_proctor {{/str}}</a>
     {{/complete}}
     {{/requireenrollment}}
+
+    {{#enableextension}}
+    <a class="btn btn-outline-secondary btn-sm mb-2" href="{{{extensioninstallurl}}}">{{#str}} extension_install_link, block_moodle_proctor {{/str}}</a>
+    {{/enableextension}}
+
+    {{#canmanage}}
+    <hr class="my-2">
+    <p class="small fw-bold mb-1">{{#str}} staff_tools_heading, block_moodle_proctor {{/str}}</p>
+    <a class="btn btn-outline-primary btn-sm me-1 mb-1" href="{{{sandboxurl}}}">{{#str}} sandbox_link, block_moodle_proctor {{/str}}</a>
+    {{#canreports}}
+    <a class="btn btn-outline-secondary btn-sm mb-1" href="{{{reportsurl}}}">{{#str}} reports_link, block_moodle_proctor {{/str}}</a>
+    {{/canreports}}
+    {{/canmanage}}
 </div>

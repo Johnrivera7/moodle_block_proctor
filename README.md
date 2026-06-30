@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square)](LICENSE)
 [![Branch](https://img.shields.io/badge/Branch-MOODLE__52-green?style=flat-square)](https://github.com/Johnrivera7/moodle_block_proctor/tree/MOODLE_52)
 [![Depends on](https://img.shields.io/badge/Requires-local__moodle__proctor-red?style=flat-square)](https://github.com/Johnrivera7/moodle_proctor)
-[![Version](https://img.shields.io/badge/Version-1.4.1-informational?style=flat-square)](version.php)
+[![Version](https://img.shields.io/badge/Version-1.5.2-informational?style=flat-square)](version.php)
 
-Bloque de curso con **estado de supervisión** y enlace directo a **verificación de identidad** (cédula + rostro).
+Bloque de curso con **estado de supervisión**, enlace a **verificación de identidad** (cédula + rostro) y **sandbox** para gestores/administradores.
 
 | | |
 |---|---|
@@ -28,7 +28,7 @@ Bloque de curso con **estado de supervisión** y enlace directo a **verificació
 |-----------|---------|
 | Moodle | **5.2+** |
 | PHP | **8.5+** |
-| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_52) **v1.4.1+** |
+| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_52) **v1.5.2+** |
 
 ---
 
@@ -47,9 +47,10 @@ git clone -b MOODLE_52 https://github.com/Johnrivera7/moodle_block_proctor.git m
 
 1. **Añadir bloque → Moodle Proctor** en el curso
 2. Semáforo: almacenamiento y verificación de identidad
-3. Botón **Verificar identidad (cédula + rostro)** — abre el flujo en el navegador (móvil o PC)
+3. Botón **Verificar identidad (cédula + rostro)** — flujo en navegador (recomendado **celular**, cámara trasera, HTTPS)
+4. **Gestores/admin:** sección *Herramientas* con enlace **Probar proctoring (sandbox)** e informes
 
-La configuración principal (almacenamiento, RUT, OCR, umbrales) está en **Plugins locales → Moodle Proctor**.
+La configuración principal (almacenamiento, RUT, alertas live, Python embebido) está en **Plugins locales → Moodle Proctor**.
 
 Ajustes del bloque: **Administración → Bloques → Moodle Proctor block**.
 
