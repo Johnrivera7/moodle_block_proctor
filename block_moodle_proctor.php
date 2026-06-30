@@ -6,6 +6,9 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2026 John Rivera
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+require_once($CFG->dirroot . '/local/moodle_proctor/lib.php');
+
 class block_moodle_proctor extends block_base {
 
     public function init() {
