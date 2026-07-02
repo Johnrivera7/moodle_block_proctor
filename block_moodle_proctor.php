@@ -70,6 +70,9 @@ class block_moodle_proctor extends block_base {
             'reportsurl' => (new moodle_url('/local/moodle_proctor/reports.php', [
                 'courseid' => $COURSE->id,
             ]))->out(false),
+            'identityreporturl' => (new moodle_url('/local/moodle_proctor/identity_report.php', [
+                'courseid' => $COURSE->id,
+            ]))->out(false),
             'requireenrollment' => !empty($config->requireenrollment),
             'storageok' => local_moodle_proctor_is_configured(),
             'enableextension' => !empty($config->enableextension),

@@ -16,6 +16,7 @@ $string['extension_install_link'] = 'Install browser extension';
 $string['staff_tools_heading'] = 'Staff tools (manager/admin)';
 $string['sandbox_link'] = 'Test proctoring (sandbox)';
 $string['reports_link'] = 'Proctoring reports';
+$string['identity_report_link'] = 'Facial identity report';
 $string['notconfigured'] = 'Moodle Proctor is not configured on this site.';
 $string['settings_info_heading'] = 'Configuration';
 $string['settings_info_desc'] = 'Main proctoring, storage, RUT and identity settings are in <a href="/admin/settings.php?section=local_moodle_proctor_settings">Local plugins → Moodle Proctor</a>.';
