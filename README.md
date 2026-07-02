@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square)](LICENSE)
 [![Branch](https://img.shields.io/badge/Branch-MOODLE__50-green?style=flat-square)](https://github.com/Johnrivera7/moodle_block_proctor/tree/MOODLE_50)
 [![Depends on](https://img.shields.io/badge/Requires-local__moodle__proctor-red?style=flat-square)](https://github.com/Johnrivera7/moodle_proctor)
-[![Version](https://img.shields.io/badge/Version-1.5.2-informational?style=flat-square)](version.php)
+[![Version](https://img.shields.io/badge/Version-1.6.0-informational?style=flat-square)](version.php)
 
-Bloque de curso con **estado de supervisión**, enlace a **verificación de identidad** (cédula + rostro) y **sandbox** para gestores/administradores.
+Bloque de curso con **estado de supervisión**, enlace a **verificación de identidad** (cédula + rostro), **informe de identidad facial** para docentes y **sandbox** para gestores/administradores.
 
 | | |
 |---|---|
@@ -26,9 +26,9 @@ Bloque de curso con **estado de supervisión**, enlace a **verificación de iden
 
 | Requisito | Versión |
 |-----------|---------|
-| Moodle | **5.2+** |
-| PHP | **8.5+** |
-| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_50) **v1.5.2+** |
+| Moodle | **5.0+** |
+| PHP | **8.2+** |
+| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_50) **v1.6.0+** |
 
 ---
 
@@ -48,7 +48,8 @@ git clone -b MOODLE_50 https://github.com/Johnrivera7/moodle_block_proctor.git m
 1. **Añadir bloque → Moodle Proctor** en el curso
 2. Semáforo: almacenamiento y verificación de identidad
 3. Botón **Verificar identidad (cédula + rostro)** — flujo en navegador (recomendado **celular**, cámara trasera, HTTPS)
-4. **Gestores/admin:** sección *Herramientas* con enlace **Probar proctoring (sandbox)** e informes
+4. **Docentes/gestores** (`viewreports`): enlaces a **Informes de supervisión** e **Informe de identidad facial** (`/local/moodle_proctor/identity_report.php`)
+5. **Gestores/admin:** sección *Herramientas* con enlace **Probar proctoring (sandbox)**
 
 La configuración principal (almacenamiento, RUT, alertas live, Python embebido) está en **Plugins locales → Moodle Proctor**.
 

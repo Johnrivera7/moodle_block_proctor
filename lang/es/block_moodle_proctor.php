@@ -16,6 +16,7 @@ $string['extension_install_link'] = 'Instalar extensión de navegador';
 $string['staff_tools_heading'] = 'Herramientas (gestor/admin)';
 $string['sandbox_link'] = 'Probar proctoring (sandbox)';
 $string['reports_link'] = 'Informes de supervisión';
+$string['identity_report_link'] = 'Informe de identidad facial';
 $string['notconfigured'] = 'Moodle Proctor no está configurado en este sitio.';
 $string['settings_info_heading'] = 'Configuración';
 $string['settings_info_desc'] = 'La configuración principal de supervisión, almacenamiento, RUT y verificación de identidad está en <a href="/admin/settings.php?section=local_moodle_proctor_settings">Plugins locales → Moodle Proctor</a>.';
