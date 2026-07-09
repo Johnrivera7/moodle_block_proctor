@@ -52,15 +52,18 @@ class block_moodle_proctor extends block_base {
         $enrollment = new \local_moodle_proctor\enrollment_manager();
         $complete = $enrollment->is_complete($USER->id, $COURSE->id);
         $config = local_moodle_proctor_get_config();
+        $requires = !empty($config->requireenrollment)
+            && local_moodle_proctor_user_requires_enrollment((int) $USER->id, (int) $COURSE->id);
         $systemcontext = context_system::instance();
         $canmanage = has_capability('local/moodle_proctor:manage', $systemcontext);
         $canreports = has_capability('local/moodle_proctor:viewreports', $context);
 
         $data = (object) [
-            'complete' => $complete,
-            'enrollmenturl' => (new moodle_url('/local/moodle_proctor/enrollment.php', [
-                'courseid' => $COURSE->id,
-            ]))->out(false),
+            'complete' => $requires ? $complete : true,
+            'enrollmenturl' => local_moodle_proctor_enrollment_url(
+                (int) $COURSE->id,
+                $PAGE->url
+            )->out(false),
             'extensioninstallurl' => (new moodle_url('/local/moodle_proctor/extension_install.php', [
                 'courseid' => $COURSE->id,
             ]))->out(false),
@@ -73,7 +76,7 @@ class block_moodle_proctor extends block_base {
             'identityreporturl' => (new moodle_url('/local/moodle_proctor/identity_report.php', [
                 'courseid' => $COURSE->id,
             ]))->out(false),
-            'requireenrollment' => !empty($config->requireenrollment),
+            'requireenrollment' => $requires,
             'storageok' => local_moodle_proctor_is_configured(),
             'enableextension' => !empty($config->enableextension),
             'canmanage' => $canmanage,
