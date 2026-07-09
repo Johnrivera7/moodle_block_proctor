@@ -24,7 +24,7 @@ class block_moodle_proctor extends block_base {
     }
 
     public function get_content() {
-        global $USER, $COURSE, $OUTPUT;
+        global $USER, $COURSE, $OUTPUT, $PAGE;
 
         if ($this->content !== null) {
             return $this->content;
@@ -58,11 +58,18 @@ class block_moodle_proctor extends block_base {
         $canmanage = has_capability('local/moodle_proctor:manage', $systemcontext);
         $canreports = has_capability('local/moodle_proctor:viewreports', $context);
 
+        $returnurl = null;
+        if (!empty($PAGE->url) && $PAGE->url instanceof moodle_url) {
+            $returnurl = $PAGE->url;
+        } else if (!empty($COURSE->id)) {
+            $returnurl = new moodle_url('/course/view.php', ['id' => (int) $COURSE->id]);
+        }
+
         $data = (object) [
             'complete' => $requires ? $complete : true,
             'enrollmenturl' => local_moodle_proctor_enrollment_url(
                 (int) $COURSE->id,
-                $PAGE->url
+                $returnurl
             )->out(false),
             'extensioninstallurl' => (new moodle_url('/local/moodle_proctor/extension_install.php', [
                 'courseid' => $COURSE->id,
