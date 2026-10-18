@@ -5,9 +5,9 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square)](LICENSE)
 [![Branch](https://img.shields.io/badge/Branch-MOODLE__53-green?style=flat-square)](https://github.com/Johnrivera7/moodle_block_proctor/tree/MOODLE_53)
 [![Depends on](https://img.shields.io/badge/Requires-local__moodle__proctor-red?style=flat-square)](https://github.com/Johnrivera7/moodle_proctor)
-[![Version](https://img.shields.io/badge/Version-1.6.4-informational?style=flat-square)](version.php)
+[![Version](https://img.shields.io/badge/Version-1.7.0-informational?style=flat-square)](version.php)
 
-Bloque de curso con **estado de supervisión**, enlace a **verificación de identidad** (cédula + rostro), **informe de identidad facial** para docentes y **sandbox** para gestores y administradores.
+Bloque de curso que explica al estudiante, en lenguaje simple, si debe **verificar su identidad** (con los 5 pasos que encontrará), si su verificación está **vigente o vencida** y si tiene instalada la **extensión del navegador**. Para docentes: informes, informe de identidad facial e **infracciones de integridad**.
 
 | | |
 |---|---|
@@ -28,7 +28,7 @@ Bloque de curso con **estado de supervisión**, enlace a **verificación de iden
 |-----------|---------|
 | Moodle | **5.3** |
 | PHP | **8.3+** |
-| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_53) **v1.6.4** |
+| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_53) **v1.7.0** |
 
 ---
 
@@ -48,10 +48,10 @@ En Moodle 5.3 con carpeta `public/`, el destino es `public/blocks/moodle_proctor
 ## Uso
 
 1. **Añadir bloque → Moodle Proctor** en el curso.
-2. El semáforo muestra almacenamiento y verificación de identidad.
-3. El botón **Verificar identidad (cédula + rostro)** abre el flujo en el navegador. En el celular, con HTTPS y la cámara trasera, la lectura de la cédula es más fiable.
-4. Docentes y gestores (`viewreports`) ven **Informes de supervisión** e **Informe de identidad facial**.
-5. Gestores y administradores ven el enlace al sandbox.
+2. **Estudiante sin verificar (o con la verificación vencida):** ve los 5 pasos (frente de la cédula, sus datos, su rostro, dorso con QR, revisar y guardar), consejos y el botón **Verificar mi identidad**.
+3. **Estudiante verificado:** «Su identidad está verificada», con la fecha de vigencia si el núcleo la tiene configurada.
+4. **Extensión** (si está habilitada en el núcleo): «Extensión del navegador instalada» o «Falta la extensión del navegador» con el botón **Instalar extensión**, que abre la Chrome Web Store cuando la URL está configurada.
+5. **Herramientas para docentes** (`viewreports`): estado del almacenamiento, **Informes de supervisión**, **Informe de identidad facial** e **Infracciones de integridad**. Gestores y administradores ven además el sandbox.
 
 La configuración principal está en **Plugins locales → Moodle Proctor**. El cuestionario funciona aunque este bloque no esté en el curso: la regla de acceso también exige la identidad.
 

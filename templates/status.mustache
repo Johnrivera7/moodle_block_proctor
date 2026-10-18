@@ -1,52 +1,62 @@
 {{!
     @template block_moodle_proctor/status
+
+    Student-facing status of identity verification, with the steps they will go through.
+    Technical status (storage) is only shown to staff.
 }}
 <div class="block-moodle-proctor-status">
-    <h6 class="h6">{{#str}} status_heading, block_moodle_proctor {{/str}}</h6>
-    <ul class="list-unstyled mb-2">
-        <li>
-            {{#storageok}}
-                <span class="text-success">●</span> {{#str}} storage_ready, block_moodle_proctor {{/str}}
-            {{/storageok}}
-            {{^storageok}}
-                <span class="text-danger">●</span> {{#str}} storage_notready, block_moodle_proctor {{/str}}
-            {{/storageok}}
-        </li>
-        {{#requireenrollment}}
-        <li>
-            {{#complete}}
-                <span class="text-success">●</span> {{#str}} enrollment_complete, block_moodle_proctor {{/str}}
-            {{/complete}}
-            {{^complete}}
-                <span class="text-warning">●</span> {{#str}} enrollment_pending, block_moodle_proctor {{/str}}
-            {{/complete}}
-        </li>
-        {{/requireenrollment}}
-        {{#enableextension}}
-        <li>
-            <span class="text-info">●</span> {{#str}} extension_required, block_moodle_proctor {{/str}}
-        </li>
-        {{/enableextension}}
-    </ul>
-
     {{#requireenrollment}}
+    {{#complete}}
+    <p class="mb-2"><span class="text-success" aria-hidden="true">●</span> <strong>{{#str}} enrollment_complete, block_moodle_proctor {{/str}}</strong></p>
+    <p class="small text-muted mb-2">{{#str}} enrollment_complete_help, block_moodle_proctor {{/str}}</p>
+    {{#validuntil}}<p class="small text-muted mb-2">{{#str}} enrollment_valid_until, block_moodle_proctor, {{validuntil}} {{/str}}</p>{{/validuntil}}
+    {{/complete}}
     {{^complete}}
-    <p class="small text-muted mb-2">{{#str}} enrollment_pending_help, block_moodle_proctor {{/str}}</p>
+    <p class="mb-2"><span class="text-warning" aria-hidden="true">●</span> <strong>
+        {{#expired}}{{#str}} enrollment_expired, block_moodle_proctor {{/str}}{{/expired}}
+        {{^expired}}{{#str}} enrollment_pending, block_moodle_proctor {{/str}}{{/expired}}
+    </strong></p>
+    <p class="small mb-1">{{#str}} enrollment_steps_intro, block_moodle_proctor {{/str}}</p>
+    <ol class="small ps-3 mb-2">
+        <li>{{#str}} enrollment_step_idcard, block_moodle_proctor {{/str}}</li>
+        <li>{{#str}} enrollment_step_confirm, block_moodle_proctor {{/str}}</li>
+        <li>{{#str}} enrollment_step_face, block_moodle_proctor {{/str}}</li>
+        <li>{{#str}} enrollment_step_qr, block_moodle_proctor {{/str}}</li>
+        <li>{{#str}} enrollment_step_review, block_moodle_proctor {{/str}}</li>
+    </ol>
+    <p class="small text-muted mb-2">{{#str}} enrollment_tips, block_moodle_proctor {{/str}}</p>
     <a class="btn btn-primary btn-sm mb-2" href="{{{enrollmenturl}}}">{{#str}} enrollment_link, block_moodle_proctor {{/str}}</a>
     {{/complete}}
     {{/requireenrollment}}
 
     {{#enableextension}}
-    <a class="btn btn-outline-secondary btn-sm mb-2" href="{{{extensioninstallurl}}}">{{#str}} extension_install_link, block_moodle_proctor {{/str}}</a>
+    <p class="small mb-1" data-proctor-extension-status
+       data-detected="{{#str}} extension_detected, block_moodle_proctor {{/str}}"
+       data-missing="{{#str}} extension_missing, block_moodle_proctor {{/str}}">
+        <span class="text-info" aria-hidden="true" data-proctor-extension-dot>●</span>
+        <span data-proctor-extension-text>{{#str}} extension_checking, block_moodle_proctor {{/str}}</span>
+    </p>
+    <div class="d-none mb-2" data-proctor-extension-install>
+        <p class="small text-muted mb-1">{{#str}} extension_required, block_moodle_proctor {{/str}}</p>
+        <a class="btn btn-primary btn-sm" href="{{{extensioninstallurl}}}"{{#extensionstore}} target="_blank" rel="noopener"{{/extensionstore}}>{{#str}} extension_install_link, block_moodle_proctor {{/str}}</a>
+        {{#extensionstore}}<p class="small text-muted mt-1 mb-0">{{#str}} extension_store_hint, block_moodle_proctor {{/str}}</p>{{/extensionstore}}
+    </div>
     {{/enableextension}}
 
-    {{#canreports}}
+    {{#showstafftools}}
     <hr class="my-2">
     <p class="small fw-bold mb-1">{{#str}} staff_tools_heading, block_moodle_proctor {{/str}}</p>
+    <p class="small mb-1">
+        {{#storageok}}<span class="text-success" aria-hidden="true">●</span> {{#str}} storage_ready, block_moodle_proctor {{/str}}{{/storageok}}
+        {{^storageok}}<span class="text-danger" aria-hidden="true">●</span> {{#str}} storage_notready, block_moodle_proctor {{/str}}{{/storageok}}
+    </p>
     {{#canmanage}}
     <a class="btn btn-outline-primary btn-sm me-1 mb-1" href="{{{sandboxurl}}}">{{#str}} sandbox_link, block_moodle_proctor {{/str}}</a>
     {{/canmanage}}
+    {{#canreports}}
     <a class="btn btn-outline-secondary btn-sm me-1 mb-1" href="{{{reportsurl}}}">{{#str}} reports_link, block_moodle_proctor {{/str}}</a>
     <a class="btn btn-outline-secondary btn-sm mb-1" href="{{{identityreporturl}}}">{{#str}} identity_report_link, block_moodle_proctor {{/str}}</a>
+    <a class="btn btn-outline-danger btn-sm mb-1" href="{{{violationsurl}}}">{{#str}} violations_heading, local_moodle_proctor {{/str}}</a>
     {{/canreports}}
+    {{/showstafftools}}
 </div>
