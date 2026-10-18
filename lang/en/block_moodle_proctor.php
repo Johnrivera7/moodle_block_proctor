@@ -1,7 +1,30 @@
 <?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
+/**
+ * Strings for component 'block_moodle_proctor', language 'en'.
+ *
+ * @package    block_moodle_proctor
+ * @copyright  2026 John Rivera <https://github.com/Johnrivera7>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Moodle Proctor block';
+$string['pluginname'] = 'Proctor Chile block';
 $string['privacy:metadata'] = 'The block displays proctoring status only. Personal data is stored by local_moodle_proctor.';
 
 $string['status_heading'] = 'Proctoring status';
@@ -16,9 +39,9 @@ $string['staff_tools_heading'] = 'Teacher tools';
 $string['sandbox_link'] = 'Test proctoring (sandbox)';
 $string['reports_link'] = 'Proctoring reports';
 $string['identity_report_link'] = 'Facial identity report';
-$string['notconfigured'] = 'Moodle Proctor is not configured on this site.';
+$string['notconfigured'] = 'Proctor Chile is not configured on this site.';
 $string['settings_info_heading'] = 'Configuration';
-$string['settings_info_desc'] = 'Main proctoring, storage, RUT and identity settings are in <a href="/admin/settings.php?section=local_moodle_proctor_settings">Local plugins → Moodle Proctor</a>.';
+$string['settings_info_desc'] = 'Main proctoring, storage, RUT and identity settings are in <a href="/admin/settings.php?section=local_moodle_proctor_settings">Local plugins → Proctor Chile</a>.';
 $string['enrollment_complete_help'] = 'You can now take the proctored exams in this course. During the exam the camera will take photos to confirm it is you.';
 $string['enrollment_valid_until'] = 'Valid until {$a}.';
 $string['enrollment_expired'] = 'Your identity verification has expired. Please repeat it before your next exam';

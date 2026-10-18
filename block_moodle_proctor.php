@@ -1,30 +1,71 @@
 <?php
+// This file is part of Moodle - https://moodle.org/
+//
+// Moodle is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Moodle is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
+
 defined('MOODLE_INTERNAL') || die();
 
 /**
+ * Moodle Proctor block.
+ *
  * @package    block_moodle_proctor
- * @copyright  2026 John Rivera
+ * @copyright  2026 John Rivera <https://github.com/Johnrivera7>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once($CFG->dirroot . '/local/moodle_proctor/lib.php');
 
+/**
+ * Block showing the student's Moodle Proctor identity verification status and staff tools.
+ *
+ * @package    block_moodle_proctor
+ * @copyright  2026 John Rivera <https://github.com/Johnrivera7>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class block_moodle_proctor extends block_base {
-
+    /**
+     * Set the block title.
+     */
     public function init() {
         $this->title = get_string('pluginname', 'block_moodle_proctor');
     }
 
+    /**
+     * The block can be added to course pages only.
+     *
+     * @return array
+     */
     public function applicable_formats() {
         return ['course' => true, 'my' => false];
     }
 
+    /**
+     * Only one instance of the block is allowed per page.
+     *
+     * @return bool
+     */
     public function instance_allow_multiple() {
         return false;
     }
 
+    /**
+     * Build the block content: verification status, browser extension and staff links.
+     *
+     * @return stdClass
+     */
     public function get_content() {
-        global $USER, $COURSE, $OUTPUT, $PAGE;
+        global $USER, $COURSE, $OUTPUT;
 
         if ($this->content !== null) {
             return $this->content;
@@ -68,8 +109,8 @@ class block_moodle_proctor extends block_base {
         $canreports = has_capability('local/moodle_proctor:viewreports', $context);
 
         $returnurl = null;
-        if (!empty($PAGE->url) && $PAGE->url instanceof moodle_url) {
-            $returnurl = $PAGE->url;
+        if (!empty($this->page->url) && $this->page->url instanceof moodle_url) {
+            $returnurl = $this->page->url;
         } else if (!empty($COURSE->id)) {
             $returnurl = new moodle_url('/course/view.php', ['id' => (int) $COURSE->id]);
         }
