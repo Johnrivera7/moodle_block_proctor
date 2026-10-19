@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-GPL--3.0-blue?style=flat-square)](LICENSE)
 [![Branch](https://img.shields.io/badge/Branch-MOODLE__53-green?style=flat-square)](https://github.com/Johnrivera7/moodle_block_proctor/tree/MOODLE_53)
 [![Depends on](https://img.shields.io/badge/Requires-local__moodle__proctor-red?style=flat-square)](https://github.com/Johnrivera7/moodle_proctor)
-[![Version](https://img.shields.io/badge/Version-1.8.0-informational?style=flat-square)](version.php)
+[![Version](https://img.shields.io/badge/Version-1.8.3-informational?style=flat-square)](version.php)
 
 Bloque de curso que explica al estudiante, en lenguaje simple, si debe **verificar su identidad** (con los 5 pasos que encontrará), si su verificación está **vigente o vencida** y si tiene instalada la **extensión del navegador**. Para docentes: informes, informe de identidad facial e **infracciones de integridad**.
 
@@ -28,7 +28,7 @@ Bloque de curso que explica al estudiante, en lenguaje simple, si debe **verific
 |-----------|---------|
 | Moodle | **5.3** |
 | PHP | **8.5** |
-| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_53) **v1.8.0** |
+| Plugin núcleo | [`local_moodle_proctor`](https://github.com/Johnrivera7/moodle_proctor/tree/MOODLE_53) **v1.8.3** |
 
 ---
 
