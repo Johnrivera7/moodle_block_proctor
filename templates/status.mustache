@@ -3,6 +3,41 @@
 
     Student-facing status of identity verification, with the steps they will go through.
     Technical status (storage) is only shown to staff.
+
+    Context variables required for this template:
+    * requireenrollment - Whether identity enrollment is required.
+    * complete - Whether the student is enrolled.
+    * expired - Whether the enrollment has expired.
+    * validuntil - Date until which the enrollment is valid.
+    * enrollmenturl - URL of the enrollment page.
+    * enableextension - Whether the browser extension is used.
+    * extensionstore - Whether the extension is installed from the Chrome Web Store.
+    * extensioninstallurl - URL of the extension install page.
+    * showstafftools - Whether to show the staff section.
+    * storageok - Whether storage is configured.
+    * canmanage - Whether the user can manage proctoring.
+    * canreports - Whether the user can see the reports.
+    * reportsurl, identityreporturl, violationsurl, sandboxurl - Staff links.
+
+    Example context (json):
+    {
+        "requireenrollment": true,
+        "complete": true,
+        "expired": false,
+        "validuntil": "31 December 2026",
+        "enrollmenturl": "https://example.com/local/moodle_proctor/enrollment.php?courseid=2",
+        "enableextension": true,
+        "extensionstore": true,
+        "extensioninstallurl": "https://example.com/local/moodle_proctor/extension_install.php",
+        "showstafftools": false,
+        "storageok": true,
+        "canmanage": false,
+        "canreports": false,
+        "reportsurl": "",
+        "identityreporturl": "",
+        "violationsurl": "",
+        "sandboxurl": ""
+    }
 }}
 <div class="block-moodle-proctor-status">
     {{#requireenrollment}}
